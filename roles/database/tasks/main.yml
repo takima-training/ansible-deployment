@@ -1,12 +1,12 @@
 - name: Create docker database
   docker_container:
-    name: my_db
+    name: "{{ my_db_hostname }}"
     image: "postgres:12"
     state: started
     env:
-      POSTGRES_USER: "user"
-      POSTGRES_PASSWORD: "password"
-      POSTGRES_DB: "db"
+      POSTGRES_USER: "{{ my_db_user }}"
+      POSTGRES_PASSWORD: "{{ my_db_password }}"
+      POSTGRES_DB: "{{ my_db_name }}"
     networks:
       - name: "my_network"
     volumes:
