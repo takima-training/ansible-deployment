@@ -1,0 +1,9 @@
+---
+all:
+  vars:
+    ansible_user: centos
+    ansible_ssh_private_key_file: ~/.ssh/ssh_key
+  children:
+    prod:
+      hosts: my_server_url
+...

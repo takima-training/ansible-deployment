@@ -1,0 +1,13 @@
+- name: Create docker database
+  docker_container:
+    name: my_db
+    image: "postgres:12"
+    state: started
+    env:
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_DB: "db"
+    networks:
+      - name: "my_network"
+    volumes:
+      - my_db_volume:/var/lib/postgresql/data
